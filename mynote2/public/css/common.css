@@ -1,0 +1,52 @@
+.page-title{
+	font-size:20px;
+}
+.page-nav{
+	padding:10px;
+	background-color:#ccc;
+	margin-bottom:30px;
+}
+.panel,
+.panel-default{
+	padding:70px;
+	/*background-color: rgba(242, 255, 79, 0.3);*/
+	background: url(../images/menu-bg.jpg) #F6F4E4;
+	background-size:cover;
+	color:#6B6854;
+	/*font:14px/18px "Trebuchet MS", Arial, Helvetica, sans-serif;*/
+}
+.panel-heading{
+	background-color: rgba(187, 200, 57, 0.78);
+}
+.bgcolor{
+	padding:30px;
+	background:url(../images/calendar_bg.gif);
+    background-size: cover;
+	/*background-color: rgba(242, 255, 79, 0.3);*/
+}
+
+.big{
+    padding-top:10px;
+	padding-bottom: 300px;
+	background: url("../images/menu-bg.jpg") no-repeat #F6F4E4;
+}
+
+.bg{
+	margin:0px;
+	padding:0px;
+	background: url(../images/mainbg.gif) 0 0 repeat-x #F6F4E4;
+	color:#6B6854;
+	font:14px/18px "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+.nav-home,
+.nav-quit,
+.nav-username,
+.nav-register,
+.nav-login{
+	margin:0 10px;
+}
+
+.err-info{
+	color:#f00;
+}
