@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title><%= pageTitle %></title>
+    <link href='/favicon.ico' rel="shortcut icon"/>
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap.css"/>
+    <link rel="stylesheet" href="/assets/css/font-awesome.css"/>
+
+    <!-- text fonts -->
+    <link rel="stylesheet" href="/assets/css/ace-fonts.css"/>
+
+    <!-- ace styles -->
+    <link rel="stylesheet" href="/assets/css/ace.css"/>
+
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="/assets/css/ace-part2.css"/>
+    <![endif]-->
+    <link rel="stylesheet" href="/assets/css/ace-rtl.css"/>
+
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="/assets/css/ace-ie.css"/>
+    <![endif]-->
+
+</head>
+<body class="login-layout">
+<div class="clearfix page-nav">
+    <% if(user){ %>
+    <div class="pull-left nav-username">欢迎你，<%= user.username %></div>
+    <div class="pull-left"><a href="/post">发表</a></div>
+    <div class="pull-right nav-quit"><a href="/quit">退出</a></div>
+    <div class="pull-right nav-quit"><a href="/">首页</a></div>
+    <% }else{ %>
+    <div class="pull-right nav-register"><a href="/register">注册</a></div>
+    <div class="pull-right nav-login"><a href="/login">登录</a></div>
+    <div class="pull-right nav-quit"><a href="/">首页</a></div>
+    <% } %>
+</div>
+
+<div class="main-container">
+    <div class="main-content">
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
+                <div class="login-container">
+                    <div class="center">
+                        <h1>
+                            <i class="ace-icon fa fa-leaf green"></i>
+                            <span class="red">Happy</span>
+                            <span class="white" id="id-text2">在线日记本</span>
+                        </h1>
+                        <h4 class="blue" id="id-company-text">&copy; 陈静 1501210884</h4>
+                    </div>
+
+                    <div class="space-6"></div>
+                    <div class='text-center err-info'><%= err %></div>
+                    <div class="widget-body">
+                        <div class="widget-main">
+                            <h4 class="header green lighter bigger">
+                                <i class="ace-icon fa fa-users blue"></i>
+                                新用户注册
+                            </h4>
+                            <div class="space-6"></div>
+                            <p> (づ￣3￣)づ请输入您的信息╭❤～ </p>
+                            <div class="space-6"></div>
+                            <form method="post">
+                                <fieldset>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="username"
+                                               value='<%= username %>'
+                                               placeholder="用户名">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" name="password"
+                                               value='<%= password %>' placeholder="密码">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="password" class="form-control"
+                                               name="passwordRepeat"
+                                               value='<%= passwordRepeat %>' placeholder="确认密码">
+                                    </div>
+                                    <div class="space-6"></div>
+                                    <div class="clearfix">
+                                        <button type="submit"
+                                                class="width-65 pull-right btn btn-sm btn-success">
+                                            <span class="bigger-110">注册</span>
+
+                                            <i class="ace-icon fa fa-arrow-right icon-on-right"></i>
+                                        </button>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.main-content -->
+</div><!-- /.main-container -->
+
+<!-- basic scripts -->
+
+<!--[if !IE]> -->
+<script type="text/javascript">
+    window.jQuery || document.write("<script src='../assets/js/jquery.js'>" + "<" + "/script>");
+</script>
+
+<!-- <![endif]-->
+
+<!--[if IE]>
+<script type="text/javascript">
+    window.jQuery || document.write("<script src='../assets/js/jquery1x.js'>" + "<" + "/script>");
+</script>
+<![endif]-->
+<script type="text/javascript">
+    if ('ontouchstart' in document.documentElement) document.write("<script src='../assets/js/jquery.mobile.custom.js'>" + "<" + "/script>");
+</script>
+
+<!-- inline scripts related to this page -->
+<script type="text/javascript">
+    jQuery(function ($) {
+        $(document).on('click', '.toolbar a[data-target]', function (e) {
+            e.preventDefault();
+            var target = $(this).data('target');
+            $('.widget-box.visible').removeClass('visible');//hide others
+            $(target).addClass('visible');//show target
+        });
+    });
+
+
+    //you don't need this, just used for changing background
+    jQuery(function ($) {
+        $('#btn-login-dark').on('click', function (e) {
+            $('body').attr('class', 'login-layout');
+            $('#id-text2').attr('class', 'white');
+            $('#id-company-text').attr('class', 'blue');
+
+            e.preventDefault();
+        });
+        $('#btn-login-light').on('click', function (e) {
+            $('body').attr('class', 'login-layout light-login');
+            $('#id-text2').attr('class', 'grey');
+            $('#id-company-text').attr('class', 'blue');
+
+            e.preventDefault();
+        });
+        $('#btn-login-blur').on('click', function (e) {
+            $('body').attr('class', 'login-layout blur-login');
+            $('#id-text2').attr('class', 'white');
+            $('#id-company-text').attr('class', 'light-blue');
+
+            e.preventDefault();
+        });
+
+    });
+</script>
+<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
